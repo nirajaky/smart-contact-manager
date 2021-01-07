@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://thymeleaf.org" th:replace="base::layout(~{::section})">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${title}">Home</title>
+</head>
+<body>
+    <section>
+
+            <div class="lIn">
+                <div class="container conta">
+                    <div class="row">
+                        <div class="col-md-offset-2 col-md-8 text-center">
+                            <h1 class='text-white'>Contact Manager Login</h1>
+<!--                            FORM-->
+                                <form th:action="@{/doLogin}" method="post" id="login-form" class="fom-login">
+
+                                    <h4 class="secure">Secure Login</h4>
+                                    <!-- showing custom error message -->
+                                    <div th:if="${param.error}" class="alert alert-danger">Invalid username or password</div>
+
+                                    <!-- showing logout message -->
+                                    <div th:if="${param.logout}" class="alert alert-success text-center">logout successful !!!</div>
+
+                                    </br>
+                                    <input name="username" type="email" id="userName" class="form-control fom-cont input-sm chat-input" placeholder="username"/>
+                                    </br></br>
+                                    <input name="password" type="password" id="userPassword" class="form-control fom-cont input-sm chat-input" placeholder="password"/>
+                                    </br></br>
+                                    <div class="wrap">
+                                        <span class="group-btn">
+<!--                                            <a type="submit" class="btn btn-danger btn-md">login <i class="fa fa-sign-in"></i></a>-->
+                                            <input type="submit" name="submit" class="btn btn-info btn-md" value="submit">
+                                        </span>
+                                        <span class="group-btn">
+                                            <a href="/signup" class="btn btn-success btn-md">signup <i class="fa fa-sign-up"></i></a>
+                                    </span>
+                                    </div>
+                                </form>
+                        </div>
+                    </div>
+                    </br></br></br>
+                    <!--footer-->
+                    <div class="footer text-white text-center">
+                        <p>©Smart Contact Manager. All rights reserved </p>
+                    </div>
+                    <!--//footer-->
+                </div>
+            </div>
+
+        </form>
+
+    </section>
+
+</body>
+</html>
